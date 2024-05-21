@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ChatGPT Electron</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+    }
+    #title-bar {
+      -webkit-app-region: drag;
+      height: 30px;
+      background-color: #333;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 10px;
+    }
+    #title-bar-buttons {
+      -webkit-app-region: no-drag;
+    }
+    button {
+      background: none;
+      border: none;
+      color: white;
+      cursor: pointer;
+      padding: 0 10px;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+  <div id="title-bar">
+    <div>ChatGPT Electron</div>
+    <div id="title-bar-buttons">
+      <button id="minimize-button">_</button>
+      <button id="close-button">X</button>
+    </div>
+  </div>
+  <webview id="webview" src="https://chat.openai.com" style="width:100%; height:calc(100% - 30px);"></webview>
+  <script>
+    const { remote } = require('electron');
+    const window = remote.getCurrentWindow();
+    document.getElementById('minimize-button').addEventListener('click', () => {
+      window.minimize();
+    });
+    document.getElementById('close-button').addEventListener('click', () => {
+      window.close();
+    });
+  </script>
+</body>
+</html>

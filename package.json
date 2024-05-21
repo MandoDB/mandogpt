@@ -1,0 +1,35 @@
+{
+  "name": "chatgpt-electron",
+  "version": "1.0.0",
+  "description": "An Electron app for ChatGPT",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder"
+  },
+  "build": {
+    "appId": "com.example.chatgptelectron",
+    "productName": "MandoGPT",
+    "win": {
+      "target": "nsis",
+      "icon": "icon.ico",
+      "artifactName": "MandoGPT-${version}.exe"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": true,
+      "allowToChangeInstallationDirectory": true
+    }
+  },
+  "devDependencies": {
+    "electron": "^30.0.6",
+    "electron-builder": "^24.13.3",
+    "electron-packager": "^17.1.2"
+  },
+  "dependencies": {
+    "axios": "^0.21.1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
